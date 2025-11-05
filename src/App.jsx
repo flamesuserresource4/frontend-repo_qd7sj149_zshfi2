@@ -1,28 +1,36 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import About from './components/About';
+import Portfolio from './components/Portfolio';
+import ServicesContact from './components/ServicesContact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen scroll-smooth bg-[#0b0b10] text-white">
+      {/* Top nav (simple anchor links for smooth scroll) */}
+      <header className="fixed left-0 right-0 top-0 z-40 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="#home" className="text-sm font-semibold tracking-wide text-white/80 hover:text-white">DEEPSITE</a>
+          <nav className="hidden items-center gap-6 text-sm text-white/70 md:flex">
+            <a href="#about" className="hover:text-white">About</a>
+            <a href="#portfolio" className="hover:text-white">Work</a>
+            <a href="#services" className="hover:text-white">Services</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Portfolio />
+        <ServicesContact />
+      </main>
+
+      <footer className="mx-auto max-w-6xl px-6 py-10 text-center text-xs text-white/50">
+        © {new Date().getFullYear()} Deepsite • Built with motion and precision
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
